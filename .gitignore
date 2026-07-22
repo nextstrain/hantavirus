@@ -1,0 +1,12 @@
+# Files created by workflows that we usually want to keep out of git
+auspice/
+builds/
+data/
+results/
+
+# Snakemake
+.snakemake/
+
+# OS generated files #
+######################
+.DS_Store

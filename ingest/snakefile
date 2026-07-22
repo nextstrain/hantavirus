@@ -1,0 +1,18 @@
+# The workflow filepaths are written relative to this Snakefile's base directory
+workdir: workflow.current_basedir
+
+configfile: "defaults/config.yaml"
+
+segment = ["m", "l", "s"]
+species= ["Orthohantavirus_hantanense",
+            "Orthohantavirus_seoulense", "Orthohantavirus_tulaense", "Orthohantavirus_puumalaense"]
+PIDENT=90
+
+include: "rules/fetch_from_ncbi.smk"
+include:"rules/classify_sequences.smk"
+include: "rules/curate.smk"
+
+rule all:
+    input:
+        expand("results/{species}/{segment}/metadata_curated.tsv", segment=segment, species=species),
+        expand("results/{species}/{segment}/sequences_curated.fasta", segment=segment, species=species)

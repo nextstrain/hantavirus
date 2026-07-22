@@ -1,0 +1,23 @@
+
+
+workdir: workflow.current_basedir
+
+configfile: "defaults/config.yaml"
+
+segment = ["s"]
+
+# Species names should contain no spaces and instead "_"
+species= [
+    "Orthohantavirus_seoulense"
+]
+
+include: "rules/prepare_sequences.smk"
+include: "rules/construct_phylogeny.smk"
+include: "rules/annotate_phylogeny.smk"
+include: "rules/export.smk"
+
+rule all:
+    input:
+        expand("auspice/{species}_{segment}.json", segment=segment, species=species),
+
+

@@ -1,0 +1,107 @@
+LOCUS       NC_005227               1831 bp    cRNA    linear   VRL 13-AUG-2018
+DEFINITION  Tula virus segment S, complete genome.
+ACCESSION   NC_005227
+VERSION     NC_005227.2
+DBLINK      BioProject: PRJNA485481
+KEYWORDS    RefSeq.
+SOURCE      Orthohantavirus tulaense
+  ORGANISM  Orthohantavirus tulaense
+            Viruses; Riboviria; Orthornavirae; Negarnaviricota;
+            Polyploviricotina; Bunyaviricetes; Elliovirales; Hantaviridae;
+            Mammantavirinae; Orthohantavirus.
+REFERENCE   1  (bases 1 to 1831)
+  AUTHORS   Plyusnin,A., Cheng,Y., Vapalahti,O., Pejcoch,M., Unar,J.,
+            Jelinkova,Z., Lehvaslaiho,H., Lundkvist,A. and Vaheri,A.
+  TITLE     Genetic variation in Tula hantaviruses: sequence analysis of the S
+            and M segments of strains from Central Europe
+  JOURNAL   Virus Res. 39 (2-3), 237-250 (1995)
+   PUBMED   8837887
+REFERENCE   2  (bases 1 to 1831)
+  AUTHORS   Plyusnin,A., Cheng,Y., Vapalahti,O., Pejcoch,M., Unar,J.,
+            Jelinkova,Z., Lehvaslaiho,H., Lundkvist,A. and Vaheri,A.
+  TITLE     Genetic variation in Tula hantaviruses: sequence analysis of the S
+            and M segments of strains from central Europe
+  JOURNAL   Unpublished
+REFERENCE   3  (bases 1 to 1831)
+  CONSRTM   NCBI Genome Project
+  TITLE     Direct Submission
+  JOURNAL   Submitted (04-NOV-2011) National Center for Biotechnology
+            Information, NIH, Bethesda, MD 20894, USA
+REFERENCE   4  (bases 1 to 1831)
+  AUTHORS   Plyusnin,A.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (22-JUN-1995) Alexander Plyusnin, Department of Virology,
+            Haartman Institute, Helsinki University, Haartmaninkatu 3, Helsinki,
+            FIN-01301, Finland
+COMMENT     VALIDATED REFSEQ: This record has undergone validation or
+            preliminary review. The reference sequence is identical to Z49915.
+            On Nov 4, 2011 this sequence version replaced NC_005227.1.
+            COMPLETENESS: full length.
+FEATURES             Location/Qualifiers
+     source          1..1831
+                     /organism="Orthohantavirus tulaense"
+                     /mol_type="viral cRNA"
+                     /strain="Tula/Moravia/5302Ma/94"
+                     /db_xref="taxon:3052503"
+                     /segment="S"
+     gene            43..1332
+                     /locus_tag="TULV_gp1"
+                     /db_xref="GeneID:11293673"
+     CDS             43..1332
+                     /locus_tag="TULV_gp1"
+                     /codon_start=1
+                     /product="nucleocapsid protein"
+                     /protein_id="YP_004928153.1"
+                     /db_xref="GeneID:11293673"
+                     /translation="MSQLKEIQEEITRHEQQIVIARQKLKDAEKTVEADPDDVNKSTLQ
+                     SRRAAVSALEDKLADFKRQLADLVSSQKMGEKPVDPTGLEPDDHLKERSSLRYGNVLDV
+                     NAIDIDEPSGQTADWFSIGQYITGFALAIILKALYMLSTRGRQTIKENKGTRIRFKDDS
+                     SYEEINGIRRPKHLYVSMPTAQSTMKADELTPGRFRTIVCGLFPAQIMHRNIISPVMGV
+                     IGFSFFVKDWPEKIEEFLIKPCPFLKKSGPSKEEDFLVSNDAYLLGREKALRESHLAEI
+                     DDLIDLAASGDPTPPDSIKSPQAPWVFACRPDRCPPTCIYIAGMAELGAFFSILQDMRN
+                     TIMASKTVGTAEEKLKKKSSFYQSYLRRTQSMGIQLDQRIILLFMTEWGSDIVNHFHLG
+                     DDMDPELRTLAQSLIDQKVKEISNQEPLKI"
+     gene            83..355
+                     /locus_tag="TULV_gp2"
+                     /db_xref="GeneID:11293674"
+     CDS             83..355
+                     /locus_tag="TULV_gp2"
+                     /codon_start=1
+                     /product="nonstructral protein"
+                     /protein_id="YP_004928154.1"
+                     /db_xref="GeneID:11293674"
+                     /translation="MNSKLSLPGKNLKMQKRRWKPTRMMLTRAHYRVDGQLCQHWRTNW
+                     QTSRGSLQIWCQVKKWVKSLLTRLGLSRMITSRRDQAFDMEMSLM"
+ORIGIN
+        1 tagtagtaga ctccttgaaa agctactact aaaaccgctg gtatgagcca actcaaagaa
+       61 atacaagagg aaatcacccg ccatgaacag caaattgtca ttgcccggca aaaacttaaa
+      121 gatgcagaaa agacggtgga agccgacccg gatgatgtta acaagagcac actacagagt
+      181 agacgggcag ctgtgtcagc attggaggac aaactggcag acttcaagag gcagcttgca
+      241 gatctggtgt caagtcaaaa aatgggtgaa aagcctgttg acccgactgg gcttgagccg
+      301 gatgatcacc tcaaggagag atcaagcctt cgatatggaa atgtccttga tgtgaatgct
+      361 attgacatcg atgagccaag tggacagaca gcagattggt tttctatcgg ccagtacatt
+      421 acaggctttg cacttgcaat aatcttgaag gcattgtata tgctgtcaac tagagggagg
+      481 caaacaatca aggaaaataa ggggacaaga atccggttta aggatgacag ctcatatgaa
+      541 gaaatcaatg gcattagacg cccgaaacat ctgtatgtgt ctatgccaac agcccagtct
+      601 accatgaaag ccgatgaatt gacaccaggt aggtttagaa caattgtttg tggactcttt
+      661 cctgctcaaa ttatgcacag aaacatcata agtcctgtca tgggtgtgat tggattttct
+      721 tttttcgtta aagattggcc tgaaaagatt gaggagttcc ttattaaacc ctgcccattc
+      781 ctgaagaaaa gtggtcctag taaggaagaa gattttcttg tgagtaatga tgcttacctt
+      841 ttaggacgtg aaaaggcatt aagggagtca caccttgctg agatagatga cttgattgac
+      901 cttgcagctt caggagaccc aacaccacca gactctataa agtcaccaca agcaccatgg
+      961 gtgtttgctt gtcgaccaga caggtgccct cctacatgca tctatatagc agggatggca
+     1021 gagttgggag catttttttc cattctgcag gacatgagga acacgattat ggcatccaaa
+     1081 actgtgggca cagcagagga aaaattgaag aaaaaatcct cattctatca gtcatatctg
+     1141 agacgcactc aatctatggg aatacaactg gatcaaagaa ttatcttgct atttatgaca
+     1201 gagtggggtt ctgatattgt caaccacttc catctgggtg atgatatgga ccctgagctc
+     1261 agaacacttg cacaaagtct cattgatcag aaggtcaaag agatttcaaa ccaggaaccg
+     1321 ctaaaaatct aatttgtagt tcctgcatac acacacgcac atccaatgat atgaatttga
+     1381 agggttgggc acaaaattca caccaatgca tgattacaat tcacacatac actgattggg
+     1441 ttgggtgggt caaatcaaac acatataagc tggggtaggt aagtttacta atcgtaaggt
+     1501 agctactaag ttgattattg cactacagct tggtcattga ccactcaggt aatctgctgc
+     1561 tctgtatgtt tattgttagt ttgttaagtt taaaattgta agtccttgtt tggtgtaaaa
+     1621 atttattttt gtattatgtc actagtgtaa gttcattatt gggcccaata atgtgaaact
+     1681 gagctatcat ctctgtctct tttcttcatc tctatttaaa catttctacc tccgtacact
+     1741 tatatatatg cacgtagcat atatataagt gtacgattcc actacctcag acagttgttt
+     1801 tcttgattgc ttttcaagga gtctactact a
+//

@@ -1,0 +1,52 @@
+# Excluding due to high divergence
+AB027097
+# Orthohantavirus andesense M
+U73687
+U73688
+AY515604
+# Orthohantavirus_andesense S 
+EF571895 #fragmented alignment
+OL84032 #fragmented alignment
+MW883072 #fragmented alignments
+# Orthohantavirus puumalaense M
+S67445
+HV984410
+DL139693
+EF442094 #fragmented alignment
+EF442095 #fragmented alignment
+# Orthohantavirus puumalaense S
+EF442089
+EF442092
+EF442090
+Z69987
+Z69986
+# Orthohantavirus hantanense L
+MW088982
+PP211313 # fragmented alignment
+PP211261 # fragmented alignment
+PP211267 # fragmented alignment
+# Orthohantavirus hantanense M
+DQ056294
+DQ056295
+AF176119
+AF176120
+AF288645 #likely recombination?
+# Orthohantavirus hantanese S
+AY425612
+OR239880
+OR239878
+FJ514543
+# Orthohantavirus_seoulense L 
+PX445884 #strong diverge
+OM337643 #likely recombination
+KJ209741 # bad alignment
+# Orthohantavirus_seoulense M 
+EF990916
+AY725996
+#Orthohantavirus_seoulense S 
+OR047284
+# Orthohantavirus_tulaense M 
+HQ728443
+HQ728444
+# Orthohantavirus_tulaense S 
+MW560849

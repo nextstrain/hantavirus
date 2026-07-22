@@ -1,0 +1,69 @@
+
+filter:
+  exclude: "defaults/exclude.txt"
+  min_length:
+    Orthohantavirus_andesense:
+      l: 200
+      m: 500
+      s: 450
+    Orthohantavirus_hantanense:
+      l: 400
+      m: 400
+      s: 260
+    Orthohantavirus_puumalaense:
+      l: 500
+      m: 450
+      s: 450
+    Orthohantavirus_seoulense:
+      l: 600
+      m: 300
+      s: 450
+    Orthohantavirus_tulaense:
+      l: 350
+      m: 400
+      s: 500
+  max_length:
+    Orthohantavirus_andesense:
+      l: 7000
+      m: 4000
+      s: 2000
+    Orthohantavirus_hantanense:
+      l: 7000
+      m: 4000
+      s: 2000
+    Orthohantavirus_puumalaense:
+      l: 7000
+      m: 4000
+      s: 2000
+    Orthohantavirus_seoulense:
+      l: 7000
+      m: 4000
+      s: 2000
+    Orthohantavirus_tulaense:
+      l: 7000
+      m: 4000
+      s: 2000
+  
+strain_id_field: "accession"
+
+tree:
+  method: "iqtree"
+
+refine:
+  root: "mid_point"
+
+ancestral:
+  inference: "joint"
+
+traits:
+  columns: "country"
+
+export:
+  auspice_config: "defaults/auspice_config.json"
+  description: "defaults/description.md"
+  segment_metadata_columns:
+    - accession_version
+    - length
+    - NCBI_species
+    - date_released
+    - date_updated

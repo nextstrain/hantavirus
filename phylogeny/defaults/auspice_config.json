@@ -33,8 +33,13 @@
       "type": "categorical"
     },
     {
+      "key": "NCBI_species",
+      "title": "NCBI-assigned species",
+      "type": "categorical"
+    },
+    {
       "key": "abbr_authors",
-      "title": "Authors",
+      "title": "Authors (abbreviated)",
       "type": "categorical"
     },
      {
@@ -54,6 +59,7 @@
     "country",
     "host",
     "region",
+    "NCBI_species",
     "abbr_authors",
     "length"
   ]

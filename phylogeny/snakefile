@@ -4,11 +4,14 @@ workdir: workflow.current_basedir
 
 configfile: "defaults/config.yaml"
 
-segment = ["s"]
+segment = ["l", "m", "s"]
 
 # Species names should contain no spaces and instead "_"
 species= [
-    "Orthohantavirus_seoulense"
+    "Orthohantavirus_hantanense",
+    "Orthohantavirus_seoulense",
+    "Orthohantavirus_tulaense",
+    "Orthohantavirus_puumalaense"
 ]
 
 include: "rules/prepare_sequences.smk"

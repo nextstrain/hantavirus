@@ -55,7 +55,8 @@ rule export:
         auspice = "auspice/{species}_{segment}.json",
     params:
         strain_id_field = config["strain_id_field"],
-        metadata_columns = lambda w: [name.format(segment=w.segment) for name in config["export"]["segment_metadata_columns"]]
+        metadata_columns = lambda w: [name.format(segment=w.segment) for name in config["export"]["segment_metadata_columns"]],
+        title = lambda w: f"{w.species.replace('_', ' ')} — {w.segment.upper()} segment"
     shell:
         """
         augur export v2 \
@@ -67,6 +68,7 @@ rule export:
             --colors {input.colors} \
             --auspice-config {input.auspice_config} \
             --metadata-columns {params.metadata_columns} \
+            --title "{params.title}" \
             --output {output.auspice} \
             --include-root-sequence-inline
         """

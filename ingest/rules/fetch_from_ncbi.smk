@@ -14,17 +14,6 @@ rule fetch_ncbi_dataset_package:
             --filename {output.dataset_package}
         """
 
-rule dump_ncbi_dataset_report:
-    input:
-        dataset_package="data/ncbi_dataset.zip",
-    output:
-        ncbi_dataset_tsv=temp("../data/ncbi_dataset_report_raw.tsv"),
-    shell:
-        """
-        dataformat tsv virus-genome \
-            --package {input.dataset_package} > {output.ncbi_dataset_tsv}
-        """
-
 rule extract_ncbi_dataset_sequences:
     input:
         dataset_package="data/ncbi_dataset.zip",

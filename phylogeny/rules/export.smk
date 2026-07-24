@@ -33,7 +33,7 @@ rule colors:
         colors = "results/{species}/{segment}/colors.tsv"
     shell:
         """
-        python scripts/assign-colors-copy.py \
+        python scripts/assign-colors.py \
             --color-schemes {input.color_schemes} \
             --ordering {input.color_orderings} \
             --metadata {input.metadata} \

@@ -233,58 +233,30 @@ host	Rattus
 host	Rattus rattus
 host	Rattus norvegicus
 host	Rattus tanezumi
+host	Rattus tanezumi sladeni
 host	Rattus nitidus
 host	Rattus losea
-host	Rattus sp.
 host	Rattus flavipectus
-
-# Suncus
-host	Suncus murinus
+host	Rattus andamanensis
+host	Rattus argentiventer
+host	Rattus sp.
 
 # Leopoldamys
-host	Leopoldamys edwards
-
-# Rodentia
-host	Rodentia
-
-# Erinaceous 
-host	Erinaceous amurensis
-host	Erinaceus amurensis
+host	Leopoldamys edwardsi
 
 # Niviventer
-host	Niviventer confucianu
-host	Niviventer sp.
-host	Niviventer lotipes
+host	Niviventer confucianus
 host	Niviventer fulvescens
+host	Niviventer lotipes
 host	Niviventer niviventer
+host	Niviventer sp.
 
-# Mus 
+# Micromys
+host	Micromys minutus
+
+# Mus
 host	Mus musculus
-
-# Tscherskia
-host	Tscherskia triton
-
-# Felis
-host	Felis catus
-
-# Rhombomys
-host	Rhombomys opimus
-
-# Meriones
-host	Meriones meridianus
-host	Meriones tamariscinus
-host	Meriones libycus
-
-# Nothocricetulus
-host	Nothocricetulus migratori
-
-# Cricetulus
-host	Cricetulus barabensis
-host	Cricetulus griseus
-host	Cricetidae
-
-# Alexandromys
-host	Alexandromys fortis
+host	Mus macedonicus
 
 # Apodemus
 host	Apodemus agrarius
@@ -294,6 +266,55 @@ host	Apodemus flavicollis
 host	Apodemus speciosus
 host	Apodemus argenteus
 host	Apodemus peninsulae
+host	Apodemus chevrieri
+host	Apodemus ponticus
+host	Apodemus uralensis
+
+# Suncus
+host	Suncus murinus
+
+# Sorex
+host	Sorex araneus
+
+# Crocidura
+host	Crocidura russula
+host	Crocidura lasiura
+
+# Erinaceus
+host	Erinaceus amurensis
+
+# Hipposideros
+host	Hipposideros armiger
+host	Hipposideros larvatus
+host	Hipposideros pomona
+
+# Rhinolophus
+host	Rhinolophus pusillus
+
+# Tscherskia
+host	Tscherskia triton
+
+# Cricetulus
+host	Cricetulus barabensis
+host	Cricetulus griseus
+host	Cricetidae
+
+# Nothocricetulus
+host	Nothocricetulus migratorius
+
+# Rhombomys
+host	Rhombomys opimus
+
+# Meriones
+host	Meriones meridianus
+host	Meriones tamariscinus
+host	Meriones libycus
+
+# Myospalax
+host	Myospalax psilurus
+
+# Alexandromys
+host	Alexandromys fortis
 
 # Microtus
 host	Microtus arvalis
@@ -304,19 +325,38 @@ host	Microtus dogramacii
 host	Microtus subterraneus
 host	Microtus agrestis
 host	Microtus majori
+host	Microtus californicus
+host	Microtus socialis
+
+# Stenocranius
+host	Stenocranius gregalis
+
+# Lagurus
+host	Lagurus lagurus
+
+# Chionomys
+host	Chionomys nivalis
 
 # Myodes
 host	Myodes glareolus
 host	Myodes rufocanus bedfordiae
 host	Myodes rufocanus
-
+host	Myodes regulus
 
 # Arvicola
-host	Arvcola amphibius
+host	Arvicola amphibius
 
 # Clethrionomys
 host	Clethrionomys rutilus
 
-# Crocidura
-host	Crocidura russula	Crocidu
+# Dryomys
+host	Dryomys nitedula
 
+# Dipus
+host	Dipus sagitta
+
+# Felis
+host	Felis catus
+
+# Rodentia
+host	Rodentia

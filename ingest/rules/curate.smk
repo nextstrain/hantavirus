@@ -68,7 +68,7 @@ rule curate:
         titlecase_fields=config["curate"]["titlecase"]["fields"],
         authors_field=config["curate"]["authors_field"],
         authors_default_value=config["curate"]["authors_default_value"],
-        # abbr_authors_field=config["curate"]["abbr_authors_field"],
+        abbr_authors_field=config["curate"]["abbr_authors_field"],
         # annotations_id=config["curate"]["annotations_id"],
         id_field=config["curate"]["output_id_field"],
         sequence_field=config["curate"]["output_sequence_field"],
@@ -93,6 +93,7 @@ rule curate:
             | augur curate abbreviate-authors \
                 --authors-field {params.authors_field} \
                 --default-value {params.authors_default_value} \
+                --abbr-authors-field {params.abbr_authors_field} \
             | augur curate apply-geolocation-rules \
                 --geolocation-rules {input.local_geolocation_rules} \
                 --output-metadata {output.metadata} \

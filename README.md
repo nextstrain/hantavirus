@@ -28,14 +28,23 @@ separately.
 ## Installation
 
 The workflows depend on [Augur](https://docs.nextstrain.org/projects/augur/) and a number of
-bioinformatics tools. The recommended way to obtain them is the
-[Nextstrain CLI](https://docs.nextstrain.org/projects/cli/) with a managed runtime, or a Conda
-environment providing:
+bioinformatics tools. The Nextstrain [`nextstrain-base`](https://docs.nextstrain.org/en/latest/reference/glossary.html)
+conda package bundles most of them (`augur`, `snakemake`, the NCBI Datasets CLI, `csvtk`,
+`iqtree`, plus `biopython`/`pandas`/`numpy`), but **not `diamond`**, which the ingest workflow
+needs for sequence classification. Create an environment with both in one command:
 
-- `augur`, `snakemake`
-- NCBI Datasets CLI (`datasets`, `dataformat`), `csvtk`
-- `diamond`, `iqtree`
-- Python packages: `biopython`, `pandas`, `numpy`
+```bash
+mamba create -n nextstrain -c conda-forge -c bioconda -c nextstrain nextstrain-base diamond
+```
+
+Then activate it before running either workflow:
+
+```bash
+conda activate nextstrain
+```
+
+Alternatively, use the [Nextstrain CLI](https://docs.nextstrain.org/projects/cli/) with a
+managed runtime, ensuring `diamond` is additionally available on the `PATH`.
 
 ## Usage
 

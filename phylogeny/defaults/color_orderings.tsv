@@ -225,16 +225,6 @@ region	North America
 
 ################
 
-
-recency	Older
-recency	One month ago
-recency	One week ago
-recency	3-7 days ago
-recency	1-2 days ago
-recency	New
-
-################
-
 # Human
 host	Homo sapiens
 

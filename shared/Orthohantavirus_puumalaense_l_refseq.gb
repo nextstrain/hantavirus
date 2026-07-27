@@ -34,7 +34,15 @@ FEATURES             Location/Qualifiers
                      /strain="Sotkamo"
                      /db_xref="taxon:3052493"
                      /segment="L"
-     CDS             22..6504
+     gene            37..6504
+                     /locus_tag="PUUVsLgp1"
+     CDS             37..6504
+                     /locus_tag="PUUVsLgp1"
+                     /codon_start=1
+                     /product="RNA-dependent RNA polymerase"
+                     /note="CDS/translation added in-house: largest ORF, start
+                     set to its first Met (37..6504 translates to the stored
+                     protein). Absent from RefSeq NC_005225.1 (2018)."
                      /translation="MEKYRDIHERVKEAVPGETSAVECLDLLDRLYAVRHDVVDQMIKH
                      DWSDNKDREQPIGLVLLMAGVPNDVIQSMEKRVIPGSPSGQILRSFFKMTPDNYKITGN
                      LIEFIEVTVTADVARGVREKILKYQGGLEFIEQLLQIEAQKGNCQSGFKIKFNVVAVRT

@@ -15,11 +15,11 @@ species/segment combination.
 The build is split into two independent [Snakemake](https://snakemake.readthedocs.io/)
 workflows, following the standard Nextstrain pathogen-repo layout:
 
-| Directory     | Purpose |
-|---------------|---------|
-| `ingest/`     | Fetch sequences from NCBI, classify them by species/segment, and curate metadata. |
-| `phylogeny/`  | Align sequences, build and refine trees, annotate, and export Auspice JSONs. |
-| `shared/`     | Per-species/segment RefSeq GenBank files used as alignment and annotation references. |
+| Directory    | Purpose                                                                               |
+| ------------ | ------------------------------------------------------------------------------------- |
+| `ingest/`    | Fetch sequences from NCBI, classify them by species/segment, and curate metadata.     |
+| `phylogeny/` | Align sequences, build and refine trees, annotate, and export Auspice JSONs.          |
+| `shared/`    | Per-species/segment RefSeq GenBank files used as alignment and annotation references. |
 
 The two workflows are connected only through the filesystem: `phylogeny/` reads the curated
 output written to `ingest/results/`. There is no top-level Snakefile — each stage is run

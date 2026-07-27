@@ -42,8 +42,7 @@ FEATURES             Location/Qualifiers
                      /product="RNA-dependent RNA polymerase"
                      /note="CDS/translation added in-house: largest ORF, start
                      set to its first Met (37..6504 translates to the stored
-                     protein). Absent from RefSeq NC_005225.1 (2018); pending
-                     upstream correction by the original submitters."
+                     protein). Absent from RefSeq NC_005225.1 (2018)."
                      /translation="MEKYRDIHERVKEAVPGETSAVECLDLLDRLYAVRHDVVDQMIKH
                      DWSDNKDREQPIGLVLLMAGVPNDVIQSMEKRVIPGSPSGQILRSFFKMTPDNYKITGN
                      LIEFIEVTVTADVARGVREKILKYQGGLEFIEQLLQIEAQKGNCQSGFKIKFNVVAVRT

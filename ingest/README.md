@@ -14,6 +14,14 @@ snakemake --cores 4
 
 See the [top-level README](../README.md) for environment setup.
 
+## Tests
+
+Unit tests for the helper scripts live in `tests/` (stdlib `unittest`):
+
+```bash
+python -m unittest discover -s tests
+```
+
 ## Steps
 
 The workflow (`snakefile`, including `rules/*.smk`) runs in three stages:

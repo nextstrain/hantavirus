@@ -9,6 +9,7 @@ results/
 
 # Python
 __pycache__/
+.pytest_cache/
 
 # OS generated files #
 ######################

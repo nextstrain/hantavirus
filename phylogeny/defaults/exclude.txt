@@ -31,6 +31,7 @@ DQ056295
 AF176119
 AF176120
 AF288645 #likely recombination?
+KM853166 #fragmented alignment
 # Orthohantavirus hantanese S
 AY425612
 OR239880

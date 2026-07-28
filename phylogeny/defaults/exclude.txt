@@ -8,6 +8,9 @@ AY515604
 EF571895 #fragmented alignment
 OL84032 #fragmented alignment
 MW883072 #fragmented alignments
+# Orthohantavirus puumalaense L 
+EU837275 # fragmented alignment
+EU837271 # fragmented alignment
 # Orthohantavirus puumalaense M
 S67445
 HV984410
@@ -31,6 +34,7 @@ DQ056295
 AF176119
 AF176120
 AF288645 #likely recombination?
+KM853166 #fragmented alignment
 # Orthohantavirus hantanese S
 AY425612
 OR239880
@@ -40,13 +44,21 @@ FJ514543
 PX445884 #strong diverge
 OM337643 #likely recombination
 KJ209741 # bad alignment
+OP326502 # fragmented alignmenbt
 # Orthohantavirus_seoulense M 
 EF990916
 AY725996
+EU328401 # fragmented alignment
+KR108028 # fragmented alignment
+KR108030 # fragmented alignment
 #Orthohantavirus_seoulense S 
 OR047284
+MK360773 # fragmented alignment
+# Orthohantavirus_tulaense L 
+KY370085 # fragmented alignment
 # Orthohantavirus_tulaense M 
 HQ728443
 HQ728444
 # Orthohantavirus_tulaense S 
 MW560849
+HQ697354 # fragmented alignment

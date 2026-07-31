@@ -8,7 +8,7 @@ custom_rules:
 
 # Nextstrain CloudFront domain to ensure that we invalidate CloudFront after the S3 uploads
 # This is required as long as we are using the AWS CLI for uploads
-cloudfront_domain: "staging.nextstrain.org"
+cloudfront_domain: "data.nextstrain.org"
 
 # Nextstrain AWS S3 Bucket with pathogen prefix
 # Replace <pathogen> with the pathogen repo name.

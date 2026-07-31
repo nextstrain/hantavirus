@@ -28,7 +28,7 @@ on:
     #
     # Avoid start of the hour to avoid getting dropped during high load times:
     #   - https://github.com/nextstrain/.github/issues/153
-    - cron: '15 41 * * *'
+    - cron: '41 15 * * *'
 
   workflow_dispatch:
     inputs:

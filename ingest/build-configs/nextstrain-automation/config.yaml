@@ -1,0 +1,48 @@
+# This configuration file should contain all required configuration parameters
+# for the ingest workflow to run with additional Nextstrain automation rules.
+
+# Custom rules to run as part of the Nextstrain automated workflow
+# The paths should be relative to the ingest directory.
+custom_rules:
+  - build-configs/nextstrain-automation/upload.smk
+
+# Nextstrain CloudFront domain to ensure that we invalidate CloudFront after the S3 uploads
+# This is required as long as we are using the AWS CLI for uploads
+cloudfront_domain: "staging.nextstrain.org"
+
+# Nextstrain AWS S3 Bucket with pathogen prefix
+# Replace <pathogen> with the pathogen repo name.
+s3_dst: "s3://nextstrain-staging/files/workflows/hantavirus"
+
+# Mapping of files to upload.
+# Keys here are the target S3 key (after combining with "s3_dst")
+# Values are the local files produced by the workflow
+files_to_upload:
+  # hantanense
+  htnv/l/metadata.tsv.zst: results/Orthohantavirus_hantanense/l/metadata_curated.tsv
+  htnv/l/sequences.fasta.zst: results/Orthohantavirus_hantanense/l/sequences_curated.fasta
+  htnv/m/metadata.tsv.zst: results/Orthohantavirus_hantanense/m/metadata_curated.tsv
+  htnv/m/sequences.fasta.zst: results/Orthohantavirus_hantanense/m/sequences_curated.fasta
+  htnv/s/metadata.tsv.zst: results/Orthohantavirus_hantanense/s/metadata_curated.tsv
+  htnv/s/sequences.fasta.zst: results/Orthohantavirus_hantanense/s/sequences_curated.fasta
+  # puumalasense
+  puuv/l/metadata.tsv.zst: results/Orthohantavirus_puumalasense/l/metadata_curated.tsv
+  puuv/l/sequences.fasta.zst: results/Orthohantavirus_puumalasense/l/sequences_curated.fasta
+  puuv/m/metadata.tsv.zst: results/Orthohantavirus_puumalasense/m/metadata_curated.tsv
+  puuv/m/sequences.fasta.zst: results/Orthohantavirus_puumalasense/m/sequences_curated.fasta
+  puuv/s/metadata.tsv.zst: results/Orthohantavirus_puumalasense/s/metadata_curated.tsv
+  puuv/s/sequences.fasta.zst: results/Orthohantavirus_puumalasense/s/sequences_curated.fasta
+  # seoulense
+  seov/l/metadata.tsv.zst: results/Orthohantavirus_seoulense/l/metadata_curated.tsv
+  seov/l/sequences.fasta.zst: results/Orthohantavirus_seoulense/l/sequences_curated.fasta
+  seov/m/metadata.tsv.zst: results/Orthohantavirus_seoulense/m/metadata_curated.tsv
+  seov/m/sequences.fasta.zst: results/Orthohantavirus_seoulense/m/sequences_curated.fasta
+  seov/s/metadata.tsv.zst: results/Orthohantavirus_seoulense/s/metadata_curated.tsv
+  seov/s/sequences.fasta.zst: results/Orthohantavirus_seoulense/s/sequences_curated.fasta
+  # tulaense
+  tulv/l/metadata.tsv.zst: results/Orthohantavirus_tulaense/l/metadata_curated.tsv
+  tulv/l/sequences.fasta.zst: results/Orthohantavirus_tulaense/l/sequences_curated.fasta
+  tulv/m/metadata.tsv.zst: results/Orthohantavirus_tulaense/m/metadata_curated.tsv
+  tulv/m/sequences.fasta.zst: results/Orthohantavirus_tulaense/m/sequences_curated.fasta
+  tulv/s/metadata.tsv.zst: results/Orthohantavirus_tulaense/s/metadata_curated.tsv
+  tulv/s/sequences.fasta.zst: results/Orthohantavirus_tulaense/s/sequences_curated.fasta

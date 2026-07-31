@@ -16,3 +16,7 @@ rule all:
     input:
         expand("results/{species}/{segment}/metadata_curated.tsv", segment=segment, species=species),
         expand("results/{species}/{segment}/sequences_curated.fasta", segment=segment, species=species)
+
+if "custom_rules" in config:
+    for rule_file in config["custom_rules"]:
+        include: rule_file

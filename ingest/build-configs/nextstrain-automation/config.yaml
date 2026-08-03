@@ -25,13 +25,13 @@ files_to_upload:
   htnv/m/sequences.fasta.zst: results/Orthohantavirus_hantanense/m/sequences_curated.fasta
   htnv/s/metadata.tsv.zst: results/Orthohantavirus_hantanense/s/metadata_curated.tsv
   htnv/s/sequences.fasta.zst: results/Orthohantavirus_hantanense/s/sequences_curated.fasta
-  # puumalasense
-  puuv/l/metadata.tsv.zst: results/Orthohantavirus_puumalasense/l/metadata_curated.tsv
-  puuv/l/sequences.fasta.zst: results/Orthohantavirus_puumalasense/l/sequences_curated.fasta
-  puuv/m/metadata.tsv.zst: results/Orthohantavirus_puumalasense/m/metadata_curated.tsv
-  puuv/m/sequences.fasta.zst: results/Orthohantavirus_puumalasense/m/sequences_curated.fasta
-  puuv/s/metadata.tsv.zst: results/Orthohantavirus_puumalasense/s/metadata_curated.tsv
-  puuv/s/sequences.fasta.zst: results/Orthohantavirus_puumalasense/s/sequences_curated.fasta
+  # puumalaense
+  puuv/l/metadata.tsv.zst: results/Orthohantavirus_puumalaense/l/metadata_curated.tsv
+  puuv/l/sequences.fasta.zst: results/Orthohantavirus_puumalaense/l/sequences_curated.fasta
+  puuv/m/metadata.tsv.zst: results/Orthohantavirus_puumalaense/m/metadata_curated.tsv
+  puuv/m/sequences.fasta.zst: results/Orthohantavirus_puumalaense/m/sequences_curated.fasta
+  puuv/s/metadata.tsv.zst: results/Orthohantavirus_puumalaense/s/metadata_curated.tsv
+  puuv/s/sequences.fasta.zst: results/Orthohantavirus_puumalaense/s/sequences_curated.fasta
   # seoulense
   seov/l/metadata.tsv.zst: results/Orthohantavirus_seoulense/l/metadata_curated.tsv
   seov/l/sequences.fasta.zst: results/Orthohantavirus_seoulense/l/sequences_curated.fasta

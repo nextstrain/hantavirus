@@ -1,8 +1,8 @@
 {
   "title": "Real-time tracking of Orthohantavirus",
   "maintainers": [
-    {"name": "tba1", "url": "tba2"},
-    {"name": "tba3", "url": "tba4"}
+    {"name": "Hannah Jung"},
+    {"name": "the Nextstrain team", "url": "nextstrain.org"}
   ],
   "data_provenance": [
     {

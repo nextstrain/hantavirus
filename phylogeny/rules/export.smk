@@ -28,7 +28,7 @@ rule colors:
     input:
         color_schemes = "defaults/color_schemes.tsv",
         color_orderings = "defaults/color_orderings.tsv",
-        metadata = "../ingest/results/{species}/{segment}/metadata_curated.tsv",
+        metadata = "data/{species}/{segment}/metadata.tsv",
     output:
         colors = "results/{species}/{segment}/colors.tsv"
     shell:
@@ -44,7 +44,7 @@ rule export:
     """Exporting data files for for auspice"""
     input:
         tree = rules.refine.output.tree,
-        metadata = "../ingest/results/{species}/{segment}/metadata_curated.tsv",
+        metadata = "data/{species}/{segment}/metadata.tsv",
         branch_lengths = rules.refine.output.node_data,
         nt_muts = rules.ancestral.output.node_data,
         aa_muts = rules.translate.output.node_data,
@@ -52,11 +52,11 @@ rule export:
         description = config['export']['description'],
         auspice_config = config['export']['auspice_config'],
     output:
-        auspice = "auspice/{species}_{segment}.json",
+        auspice = "auspice/hantavirus_{species}_{segment}.json",
     params:
         strain_id_field = config["strain_id_field"],
         metadata_columns = lambda w: [name.format(segment=w.segment) for name in config["export"]["segment_metadata_columns"]],
-        title = lambda w: f"{w.species.replace('_', ' ')} — {w.segment.upper()} segment"
+        title = lambda w: f"{config['full_species_names'].get(w.species, w.species).replace('_', ' ')} — {w.segment.upper()} segment"
     shell:
         """
         augur export v2 \

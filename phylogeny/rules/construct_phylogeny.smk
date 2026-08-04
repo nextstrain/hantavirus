@@ -41,7 +41,7 @@ rule refine:
     input:
         tree = rules.tree.output,
         alignment = rules.align.output,
-        metadata = "../ingest/results/{species}/{segment}/metadata_curated.tsv",
+        metadata = "data/{species}/{segment}/metadata.tsv",
     output:
         tree = "results/{species}/{segment}/final_tree.nwk",
         node_data = "results/{species}/{segment}/branch_lengths.json"
@@ -57,5 +57,5 @@ rule refine:
             --metadata-id-columns {params.strain_id_field} \
             --output-tree {output.tree} \
             --output-node-data {output.node_data} \
-            --root {params.root} 
+            --root {params.root}
         """

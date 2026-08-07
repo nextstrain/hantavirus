@@ -46,7 +46,7 @@ filter:
 
 strain_id_field: "accession"
 
-ingest_url_prefix: "https://staging.nextstrain.org/files/workflows/hantavirus"
+ingest_url_prefix: "https://data.nextstrain.org/files/workflows/hantavirus"
 
 full_species_names:
   htnv: "Orthohantavirus_hantanense"

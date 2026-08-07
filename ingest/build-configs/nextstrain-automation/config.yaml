@@ -12,7 +12,7 @@ cloudfront_domain: "data.nextstrain.org"
 
 # Nextstrain AWS S3 Bucket with pathogen prefix
 # Replace <pathogen> with the pathogen repo name.
-s3_dst: "s3://nextstrain-staging/files/workflows/hantavirus"
+s3_dst: "s3://nextstrain-data/files/workflows/hantavirus"
 
 # Mapping of files to upload.
 # Keys here are the target S3 key (after combining with "s3_dst")

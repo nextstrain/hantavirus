@@ -1,7 +1,7 @@
 """
 This part of the workflow prepares sequences for constructing the phylogenetic tree.
 
-REQUIRED INPUTS:
+REQUIRED INPUTS (or download from S3):
 
     metadata    = data/curated_metadata/{species}_{segment}.tsv
     sequences   = data/curated_sequences/{species}_{segment}.fasta
@@ -21,6 +21,41 @@ This part of the workflow usually includes the following steps:
 See Augur's usage docs for these commands for more details.
 """
 
+rule download_metadata:
+    output:
+        metadata = "data/{species}/{segment}/metadata.tsv"
+    params:
+        address = lambda w: f"{config['ingest_url_prefix']}/{w.species}/{w.segment}/metadata.tsv.zst"
+    log:
+        "logs/{species}/{segment}/download_metadata.txt",
+    benchmark:
+        "benchmarks/{species}/{segment}/download_metadata.txt",
+    shell:
+        r"""
+        exec &> >(tee {log:q})
+
+        curl -fsSL --compressed {params.address:q} |
+        zstd -d -c > {output.metadata}
+        """
+
+rule download_sequences_for_segment:
+    output:
+        sequences = "data/{species}/{segment}/sequences.fasta"
+    params:
+        address = lambda w: f"{config['ingest_url_prefix']}/{w.species}/{w.segment}/sequences.fasta.zst"
+    log:
+        "logs/{species}/{segment}/download_sequences_for_segment.txt",
+    benchmark:
+        "benchmarks/{species}/{segment}/download_sequences_for_segment.txt",
+    shell:
+        r"""
+        exec &> >(tee {log:q})
+
+        curl -fsSL --compressed {params.address:q} |
+        zstd -d -c > {output.sequences}
+        """
+
+
 rule filter:
     """
     Filtering to
@@ -28,8 +63,8 @@ rule filter:
       - excluding strains in {input.exclude}
     """
     input:
-        sequences = "../ingest/results/{species}/{segment}/sequences_curated.fasta",
-        metadata = "../ingest/results/{species}/{segment}/metadata_curated.tsv",
+        sequences = "data/{species}/{segment}/sequences.fasta",
+        metadata =  "data/{species}/{segment}/metadata.tsv",
         exclude = config['filter']['exclude']
     output:
         sequences = "results/{species}/{segment}/filtered.fasta"
@@ -47,13 +82,13 @@ rule filter:
             --output-sequences {output.sequences} \
             --min-length {params.min_length} \
             --max-len {params.max_length} \
-            --exclude {input.exclude} 
+            --exclude {input.exclude}
         """
 
 from Bio import SeqIO
 
 def find_reference_name(species, segment):
-    record = SeqIO.read(f"../shared/{species}_{segment}_refseq.gb", "genbank")
+    record = SeqIO.read(f"../shared/{config['full_species_names'].get(species, species)}_{segment}_refseq.gb", "genbank")
     reference, version = record.id.split('.')
 
     return reference

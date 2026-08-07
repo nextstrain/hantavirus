@@ -53,7 +53,7 @@ rule translate:
     input:
         tree = rules.refine.output.tree,
         node_data = rules.ancestral.output.node_data,
-        reference = "../shared/{species}_{segment}_refseq.gb"
+        reference = lambda w: f"../shared/{config['full_species_names'].get(w.species, w.species)}_{w.segment}_refseq.gb"
     output:
         node_data = "results/{species}/{segment}/aa_muts.json"
     shell:

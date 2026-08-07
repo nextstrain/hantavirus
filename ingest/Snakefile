@@ -20,3 +20,8 @@ rule all:
 if "custom_rules" in config:
     for rule_file in config["custom_rules"]:
         include: rule_file
+
+
+rule clean:
+    shell:
+        "rm -rf results data .snakemake"

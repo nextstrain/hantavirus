@@ -2,49 +2,57 @@
 filter:
   exclude: "defaults/exclude.txt"
   min_length:
-    Orthohantavirus_andesense:
+    andv:
       l: 200
       m: 500
       s: 450
-    Orthohantavirus_hantanense:
+    htnv:
       l: 400
       m: 400
       s: 260
-    Orthohantavirus_puumalaense:
+    puuv:
       l: 500
       m: 450
       s: 450
-    Orthohantavirus_seoulense:
+    seov:
       l: 600
       m: 300
       s: 450
-    Orthohantavirus_tulaense:
+    tulv:
       l: 350
       m: 400
       s: 500
   max_length:
-    Orthohantavirus_andesense:
+    andv:
       l: 7000
       m: 4000
       s: 2000
-    Orthohantavirus_hantanense:
+    htnv:
       l: 7000
       m: 4000
       s: 2000
-    Orthohantavirus_puumalaense:
+    puuv:
       l: 7000
       m: 4000
       s: 2000
-    Orthohantavirus_seoulense:
+    seov:
       l: 7000
       m: 4000
       s: 2000
-    Orthohantavirus_tulaense:
+    tulv:
       l: 7000
       m: 4000
       s: 2000
-  
+
 strain_id_field: "accession"
+
+ingest_url_prefix: "https://staging.nextstrain.org/files/workflows/hantavirus"
+
+full_species_names:
+  htnv: "Orthohantavirus_hantanense"
+  puuv: "Orthohantavirus_puumalaense"
+  seov: "Orthohantavirus_seoulense"
+  tulv: "Orthohantavirus_tulaense"
 
 tree:
   method: "iqtree"

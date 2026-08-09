@@ -73,7 +73,7 @@ rule curate:
         id_field=config["curate"]["output_id_field"],
         sequence_field=config["curate"]["output_sequence_field"],
     wildcard_constraints:
-        species="hntv|seov|tulv|puuv",
+        species="htnv|seov|tulv|puuv",
     shell:
         """
         cat {input.sequences_ndjson} \

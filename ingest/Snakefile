@@ -4,7 +4,7 @@ workdir: workflow.current_basedir
 configfile: "defaults/config.yaml"
 
 segment = ["m", "l", "s"]
-species= ["hntv","seov", "tulv", "puuv"]
+species= ["htnv","seov", "tulv", "puuv"]
 PIDENT=90
 
 include: "rules/fetch_from_ncbi.smk"

@@ -49,6 +49,7 @@ strain_id_field: "accession"
 ingest_url_prefix: "https://data.nextstrain.org/files/workflows/hantavirus"
 
 full_species_names:
+  andv: "Orthohantavirus_andesense"
   htnv: "Orthohantavirus_hantanense"
   puuv: "Orthohantavirus_puumalaense"
   seov: "Orthohantavirus_seoulense"

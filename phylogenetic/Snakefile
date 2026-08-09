@@ -8,6 +8,7 @@ segment = ["l", "m", "s"]
 
 # Species names should contain no spaces and instead "_"
 species= [
+    "andv",
     "htnv",
     "seov",
     "tulv",

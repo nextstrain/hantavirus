@@ -19,30 +19,44 @@ s3_dst: "s3://nextstrain-data/files/workflows/hantavirus"
 # Values are the local files produced by the workflow
 files_to_upload:
   # hantanense
-  htnv/l/metadata.tsv.zst: results/Orthohantavirus_hantanense/l/metadata_curated.tsv
-  htnv/l/sequences.fasta.zst: results/Orthohantavirus_hantanense/l/sequences_curated.fasta
-  htnv/m/metadata.tsv.zst: results/Orthohantavirus_hantanense/m/metadata_curated.tsv
-  htnv/m/sequences.fasta.zst: results/Orthohantavirus_hantanense/m/sequences_curated.fasta
-  htnv/s/metadata.tsv.zst: results/Orthohantavirus_hantanense/s/metadata_curated.tsv
-  htnv/s/sequences.fasta.zst: results/Orthohantavirus_hantanense/s/sequences_curated.fasta
+  htnv/l/metadata.tsv.zst: results/htnv/l/metadata.tsv
+  htnv/l/sequences.fasta.zst: results/htnv/l/sequences.fasta
+  htnv/m/metadata.tsv.zst: results/htnv/m/metadata.tsv
+  htnv/m/sequences.fasta.zst: results/htnv/m/sequences.fasta
+  htnv/s/metadata.tsv.zst: results/htnv/s/metadata.tsv
+  htnv/s/sequences.fasta.zst: results/htnv/s/sequences.fasta
   # puumalaense
-  puuv/l/metadata.tsv.zst: results/Orthohantavirus_puumalaense/l/metadata_curated.tsv
-  puuv/l/sequences.fasta.zst: results/Orthohantavirus_puumalaense/l/sequences_curated.fasta
-  puuv/m/metadata.tsv.zst: results/Orthohantavirus_puumalaense/m/metadata_curated.tsv
-  puuv/m/sequences.fasta.zst: results/Orthohantavirus_puumalaense/m/sequences_curated.fasta
-  puuv/s/metadata.tsv.zst: results/Orthohantavirus_puumalaense/s/metadata_curated.tsv
-  puuv/s/sequences.fasta.zst: results/Orthohantavirus_puumalaense/s/sequences_curated.fasta
+  puuv/l/metadata.tsv.zst: results/puuv/l/metadata.tsv
+  puuv/l/sequences.fasta.zst: results/puuv/l/sequences.fasta
+  puuv/m/metadata.tsv.zst: results/puuv/m/metadata.tsv
+  puuv/m/sequences.fasta.zst: results/puuv/m/sequences.fasta
+  puuv/s/metadata.tsv.zst: results/puuv/s/metadata.tsv
+  puuv/s/sequences.fasta.zst: results/puuv/s/sequences.fasta
   # seoulense
-  seov/l/metadata.tsv.zst: results/Orthohantavirus_seoulense/l/metadata_curated.tsv
-  seov/l/sequences.fasta.zst: results/Orthohantavirus_seoulense/l/sequences_curated.fasta
-  seov/m/metadata.tsv.zst: results/Orthohantavirus_seoulense/m/metadata_curated.tsv
-  seov/m/sequences.fasta.zst: results/Orthohantavirus_seoulense/m/sequences_curated.fasta
-  seov/s/metadata.tsv.zst: results/Orthohantavirus_seoulense/s/metadata_curated.tsv
-  seov/s/sequences.fasta.zst: results/Orthohantavirus_seoulense/s/sequences_curated.fasta
+  seov/l/metadata.tsv.zst: results/seov/l/metadata.tsv
+  seov/l/sequences.fasta.zst: results/seov/l/sequences.fasta
+  seov/m/metadata.tsv.zst: results/seov/m/metadata.tsv
+  seov/m/sequences.fasta.zst: results/seov/m/sequences.fasta
+  seov/s/metadata.tsv.zst: results/seov/s/metadata.tsv
+  seov/s/sequences.fasta.zst: results/seov/s/sequences.fasta
   # tulaense
-  tulv/l/metadata.tsv.zst: results/Orthohantavirus_tulaense/l/metadata_curated.tsv
-  tulv/l/sequences.fasta.zst: results/Orthohantavirus_tulaense/l/sequences_curated.fasta
-  tulv/m/metadata.tsv.zst: results/Orthohantavirus_tulaense/m/metadata_curated.tsv
-  tulv/m/sequences.fasta.zst: results/Orthohantavirus_tulaense/m/sequences_curated.fasta
-  tulv/s/metadata.tsv.zst: results/Orthohantavirus_tulaense/s/metadata_curated.tsv
-  tulv/s/sequences.fasta.zst: results/Orthohantavirus_tulaense/s/sequences_curated.fasta
+  tulv/l/metadata.tsv.zst: results/tulv/l/metadata.tsv
+  tulv/l/sequences.fasta.zst: results/tulv/l/sequences.fasta
+  tulv/m/metadata.tsv.zst: results/tulv/m/metadata.tsv
+  tulv/m/sequences.fasta.zst: results/tulv/m/sequences.fasta
+  tulv/s/metadata.tsv.zst: results/tulv/s/metadata.tsv
+  tulv/s/sequences.fasta.zst: results/tulv/s/sequences.fasta
+  # andes open
+  andv/l/metadata.tsv.zst: results/andv/l/metadata_open.tsv
+  andv/l/sequences.fasta.zst: results/andv/l/sequences_open.fasta
+  andv/m/metadata.tsv.zst: results/andv/m/metadata_open.tsv
+  andv/m/sequences.fasta.zst: results/andv/m/sequences_open.fasta
+  andv/s/metadata.tsv.zst: results/andv/s/metadata_open.tsv
+  andv/s/sequences.fasta.zst: results/andv/s/sequences_open.fasta
+  # andes restricted
+  andv/l/metadata_restricted.tsv.zst: results/andv/l/metadata_restricted.tsv
+  andv/l/sequences_restricted.fasta.zst: results/andv/l/sequences_restricted.fasta
+  andv/m/metadata_restricted.tsv.zst: results/andv/m/metadata_restricted.tsv
+  andv/m/sequences_restricted.fasta.zst: results/andv/m/sequences_restricted.fasta
+  andv/s/metadata_restricted.tsv.zst: results/andv/s/metadata_restricted.tsv
+  andv/s/sequences_restricted.fasta.zst: results/andv/s/sequences_restricted.fasta

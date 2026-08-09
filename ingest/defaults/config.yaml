@@ -22,6 +22,17 @@ ncbi_datasets_fields:
 
 species_rename_file: "defaults/rename_species.csv"
 
+ppx_fetch:
+  seqs:
+    l: https://lapis.pathoplexus.org/andv/sample/unalignedNucleotideSequences?segments=L&versionStatus=LATEST_VERSION&isRevocation=false
+    m: https://lapis.pathoplexus.org/andv/sample/unalignedNucleotideSequences?segments=M&versionStatus=LATEST_VERSION&isRevocation=false
+    s: https://lapis.pathoplexus.org/andv/sample/unalignedNucleotideSequences?segments=S&versionStatus=LATEST_VERSION&isRevocation=false
+  meta:
+    l: https://lapis.pathoplexus.org/andv/sample/details?dataFormat=csv&versionStatus=LATEST_VERSION&length_LFrom=1
+    m: https://lapis.pathoplexus.org/andv/sample/details?dataFormat=csv&versionStatus=LATEST_VERSION&length_MFrom=1
+    s: https://lapis.pathoplexus.org/andv/sample/details?dataFormat=csv&versionStatus=LATEST_VERSION&length_SFrom=1
+
+
 # Config parameters related to the curate pipeline
 curate:
   # The path to the local geolocation rules within the pathogen repo
@@ -50,13 +61,28 @@ curate:
     submitter-country: submitter_country
     virus-name: NCBI_species
     segment: segment
+  ppx_field_map:
+    sampleCollectionDate: date
+    specimenCollectorSampleId: strain
+    displayName: pathoplexus_strain
+    earliestReleaseDate: date_released
+    accessionVersion: PPX_accession
+    insdcAccessionFull: INSDC_accession
+    geoLocCountry: country
+    geoLocAdmin1: division
+    geoLocAdmin2: location
+    hostNameCommon: host
+    insdcRawReadsAccession: sra_accession
+    dataUseTermsRestrictedUntil: restrictedUntil
+    dataUseTermsUrl: dataUseTerms__url
+    authorAffiliations: institution
   # Standardized strain name regex
   # Currently accepts any characters because we do not have a clear standard for strain names across pathogens
   strain_regex: "^.+$"
   # Back up strain name field to use if "strain" doesn"t match regex above
-  strain_backup_fields: ["accession"]
+  strain_backup_fields: ["isolate", "accession"]
   # List of date fields to standardize to ISO format YYYY-MM-DD
-  date_fields: ["date", "date_released", "date_updated"]
+  date_fields: ["date", "date_released"]
   # List of expected date formats that are present in the date fields provided above
   # These date formats should use directives expected by datetime
   # See https://docs.python.org/3.9/library/datetime.html#strftime-and-strptime-format-codes
@@ -93,6 +119,9 @@ curate:
   metadata_columns: [
     "accession",
     "accession_version",
+    "strain",
+    "isolate",
+    "note",
     "date",
     "region",
     "country",
@@ -100,10 +129,12 @@ curate:
     "location",
     "length",
     "host",
+    "is_lab_host",
     "date_released",
     "date_updated",
     "sra_accessions",
     "authors",
     "abbr_authors",
     "institution",
+    "segment_genbank",
   ]

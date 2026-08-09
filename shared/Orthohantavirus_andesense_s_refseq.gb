@@ -1,7 +1,7 @@
-LOCUS       NC_003466               1871 bp    cRNA    linear   VRL 13-AUG-2018
+LOCUS       PP_006W0E7               1871 bp    cRNA    linear   VRL 13-AUG-2018
 DEFINITION  Andes virus segment S, complete sequence.
-ACCESSION   NC_003466
-VERSION     NC_003466.1
+ACCESSION   PP_006W0E7
+VERSION     PP_006W0E7.1
 DBLINK      BioProject: PRJNA485481
 KEYWORDS    RefSeq.
 SOURCE      Orthohantavirus andesense

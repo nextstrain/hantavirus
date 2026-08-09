@@ -4,11 +4,11 @@ AB027097
 U73687
 U73688
 AY515604
-# Orthohantavirus_andesense S 
+# Orthohantavirus_andesense S
 EF571895 #fragmented alignment
 OL84032 #fragmented alignment
 MW883072 #fragmented alignments
-# Orthohantavirus puumalaense L 
+# Orthohantavirus puumalaense L
 EU837275 # fragmented alignment
 EU837271 # fragmented alignment
 # Orthohantavirus puumalaense M
@@ -40,25 +40,33 @@ AY425612
 OR239880
 OR239878
 FJ514543
-# Orthohantavirus_seoulense L 
+# Orthohantavirus_seoulense L
 PX445884 #strong diverge
 OM337643 #likely recombination
 KJ209741 # bad alignment
 OP326502 # fragmented alignmenbt
-# Orthohantavirus_seoulense M 
+# Orthohantavirus_seoulense M
 EF990916
 AY725996
 EU328401 # fragmented alignment
 KR108028 # fragmented alignment
 KR108030 # fragmented alignment
-#Orthohantavirus_seoulense S 
+#Orthohantavirus_seoulense S
 OR047284
 MK360773 # fragmented alignment
-# Orthohantavirus_tulaense L 
+# Orthohantavirus_tulaense L
 KY370085 # fragmented alignment
-# Orthohantavirus_tulaense M 
+# Orthohantavirus_tulaense M
 HQ728443
 HQ728444
-# Orthohantavirus_tulaense S 
+# Orthohantavirus_tulaense S
 MW560849
 HQ697354 # fragmented alignment
+
+# ANDV
+PP_006VT18 # modified nucleotide
+PP_006VVCJ # modified nucleotide
+PP_006VVGA # modified nucleotide
+PP_006VVFC # modified nucleotide
+PP_006VVDG # modified nucleotide
+PP_006VVEE # modified nucleotide

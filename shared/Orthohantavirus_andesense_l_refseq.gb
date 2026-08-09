@@ -1,7 +1,7 @@
-LOCUS       NC_003468               6562 bp    RNA     linear   VRL 13-AUG-2018
+LOCUS       PP_006W0E7               6562 bp    RNA     linear   VRL 13-AUG-2018
 DEFINITION  Andes virus segment L, complete genome.
-ACCESSION   NC_003468
-VERSION     NC_003468.2
+ACCESSION   PP_006W0E7
+VERSION     PP_006W0E7.2
 DBLINK      BioProject: PRJNA485481
 KEYWORDS    RefSeq.
 SOURCE      Orthohantavirus andesense
@@ -54,7 +54,7 @@ REFERENCE   8  (bases 1 to 3362)
             FA310/MS200, Reno, NV 89557, USA
 COMMENT     PROVISIONAL REFSEQ: This record has not yet been subject to final
             NCBI review. The reference sequence is identical to AF291704.
-            On Oct 2, 2002 this sequence version replaced NC_003468.1.
+            On Oct 2, 2002 this sequence version replaced PP_006W0E7.1.
             COMPLETENESS: full length.
 FEATURES             Location/Qualifiers
      source          1..6562

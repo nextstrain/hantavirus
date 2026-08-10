@@ -49,13 +49,13 @@ rule export:
         nt_muts = rules.ancestral.output.node_data,
         aa_muts = rules.translate.output.node_data,
         colors = rules.colors.output,
-        description = config['export']['description'],
-        auspice_config = config['export']['auspice_config'],
+        description =    lambda w: config['export'][w.species]['description'] if w.species in config['export'] else config['export']['generic']['description'],
+        auspice_config = lambda w: config['export'][w.species]['auspice_config'] if w.species in config['export'] else config['export']['generic']['auspice_config'],
     output:
         auspice = "auspice/hantavirus_{species}_{segment}.json",
     params:
         strain_id_field = config["strain_id_field"],
-        metadata_columns = lambda w: [name.format(segment=w.segment) for name in config["export"]["segment_metadata_columns"]],
+        metadata_columns = lambda w: [name.format(segment=w.segment) for name in config["export"]['generic']['segment_metadata_columns']],
         title = lambda w: f"{config['full_species_names'].get(w.species, w.species).replace('_', ' ')} — {w.segment.upper()} segment"
     shell:
         """

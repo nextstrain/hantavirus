@@ -65,11 +65,15 @@ ancestral:
   inference: "joint"
 
 export:
-  auspice_config: "defaults/auspice_config.json"
-  description: "defaults/description.md"
-  segment_metadata_columns:
-    - accession_version
-    - length
-    - NCBI_species
-    - date_released
-    - date_updated
+  generic:
+    auspice_config: "defaults/auspice_config.json"
+    description: "defaults/description.md"
+    segment_metadata_columns:
+      - accession_version
+      - length
+      - NCBI_species
+      - date_released
+      - date_updated
+  andv:
+    auspice_config: "defaults/auspice_config_andv.json"
+    description: "defaults/description_andv.md"

@@ -37,8 +37,8 @@ rule all:
 
 rule filter:
     input:
-        data=lambda w: f"../ingest/results/{w.segment.upper()}/sequences.fasta",
-        metadata=lambda w: f"../ingest/results/{w.segment.upper()}/metadata.tsv",
+        data=lambda w: f"../ingest/results/andv/{w.segment}/sequences.fasta",
+        metadata=lambda w: f"../ingest/results/andv/{w.segment}/metadata.tsv",
         exclude="defaults/exclude.txt",
     output:
         filtered_data="results/{segment}/sequences.fasta",

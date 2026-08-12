@@ -14,7 +14,7 @@
       "url": "https://pathoplexus.org"
     }
   ],
-  "build_url": "tba",
+  "build_url": "https://github.com/nextstrain/hantavirus",
   "colorings": [
     {
       "key": "num_date",

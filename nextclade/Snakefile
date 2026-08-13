@@ -1,0 +1,320 @@
+"""
+This is the main Nextclade Snakefile that orchestrates the workflow to produce
+a Nextclade dataset.
+"""
+
+
+# The workflow filepaths are written relative to this Snakefile's base directory
+workdir: workflow.current_basedir
+
+
+# Use default configuration values. Override with Snakemake's --configfile/--config options.
+configfile: "defaults/config.yaml"
+
+
+default_update_message = (
+    "Include 2026 Outbreak sequences; add outbreak annotation; data source is now pathoplexus"
+)
+
+segments = ["m", "l", "s"]
+
+
+wildcard_constraints:
+    segment="|".join(segments),
+
+
+# This is the default rule that Snakemake will run when there are no specified targets.
+# The default output of the Nextclade workflow is usually the produced Nextclade dataset.
+# See Nextclade docs on expected naming conventions of dataset files
+# https://docs.nextstrain.org/projects/nextclade/page/user/datasets.html
+rule all:
+    input:
+        tree=expand("auspice/tree_{segment}.json", segment=segments),
+        nextclade_dataset=expand("datasets/{segment}/tree.json", segment=segments),
+        nextclade_changelog=expand("datasets/{segment}/CHANGELOG.md", segment=segments),
+        #test_dataset="test_out",
+
+
+rule filter:
+    input:
+        data=lambda w: f"../ingest/results/andv/{w.segment}/sequences.fasta",
+        metadata=lambda w: f"../ingest/results/andv/{w.segment}/metadata.tsv",
+        exclude="defaults/exclude.txt",
+    output:
+        filtered_data="results/{segment}/sequences.fasta",
+        filtered_metadata="results/{segment}/metadata_raw.tsv",
+    params:
+        min_length=lambda w: config["min_length"][w.segment],
+    shell:
+        """
+        augur filter --metadata-id-columns accession --sequences {input.data} --metadata {input.metadata} \
+                     --min-length {params.min_length} \
+                     --exclude {input.exclude} \
+                     --output-sequences {output.filtered_data} \
+                     --output-metadata {output.filtered_metadata}
+        """
+
+
+rule add_strain_name:
+    input:
+        metadata="results/{segment}/metadata_raw.tsv",
+    output:
+        metadata_with_strain="results/{segment}/metadata.tsv",
+    run:
+        import pandas as pd
+
+        metadata = pd.read_csv(input.metadata, sep="\t")
+        metadata["strain"] = metadata.apply(
+            lambda row: f"{row['accession']}|{row['strain']}|{row['country']}/{row['date']}",
+            axis=1,
+        )
+        metadata.to_csv(output.metadata_with_strain, sep="\t", index=False)
+
+
+rule align:
+    input:
+        data="results/{segment}/sequences.fasta",
+        reference="defaults/{segment}/reference.fasta",
+        pathogen_json="defaults/{segment}/pathogen.json",
+        annotation_gff="defaults/{segment}/annotation.gff",
+    output:
+        aligned="results/{segment}/aligned.fasta",
+    shell:
+        """
+        nextclade run --input-ref {input.reference} \
+                      --input-pathogen-json {input.pathogen_json} \
+                      --input-annotation {input.annotation_gff} \
+                      --output-fasta {output.aligned} \
+                      --output-translations results/{wildcards.segment}/translations.{{cds}}.fasta \
+                      {input.data}
+        """
+
+
+rule mask:
+    input:
+        data="results/{segment}/aligned.fasta",
+    output:
+        masked_data="results/{segment}/masked.fasta",
+    params:
+        mask_beginning=lambda w: config["mask_beginning"][w.segment],
+        mask_end=lambda w: config["mask_end"][w.segment],
+    shell:
+        """
+        augur mask --sequences {input.data} \
+                    --mask-from-beginning {params.mask_beginning} \
+                    --mask-from-end {params.mask_end} \
+                    --output {output.masked_data}
+        """
+
+
+rule tree:
+    input:
+        aligned="results/{segment}/masked.fasta",
+    output:
+        tree="results/{segment}/tree_raw.nwk",
+    shell:
+        """
+        augur tree \
+            --alignment {input.aligned} \
+            --tree-builder-args "--seqtype DNA" \
+            --output {output.tree}
+        """
+
+
+rule refine:
+    input:
+        tree="results/{segment}/tree_raw.nwk",
+        metadata="results/{segment}/metadata.tsv",
+    output:
+        refined_tree="results/{segment}/tree.nwk",
+    shell:
+        """
+        augur refine --tree {input.tree} \
+                     --metadata {input.metadata} \
+                     --root mid_point \
+                     --keep-polytomies \
+                     --output-tree {output.refined_tree}
+        """
+
+
+cds = {"m": ["Gn", "Gc", "GPC"], "l": ["RdRp"], "s": ["N", "NSs"]}
+
+
+rule ancestral:
+    input:
+        tree="results/{segment}/tree.nwk",
+        aligned="results/{segment}/aligned.fasta",
+        reference="defaults/{segment}/reference.gb",
+        root="defaults/{segment}/reference.gb",
+    output:
+        ancestral_seqs="results/{segment}/muts.json",
+    params:
+        cds=lambda w: cds[w.segment],
+    shell:
+        """
+        augur ancestral --tree {input.tree} \
+                        --annotation {input.reference} \
+                        --root-sequence {input.root} \
+                        --translations results/{wildcards.segment}/translations.%GENE.fasta \
+                        --genes {params.cds} \
+                       --alignment {input.aligned} \
+                       --output-node-data {output.ancestral_seqs}
+        """
+
+rule outbreaks:
+    input:
+        tree="results/{segment}/tree.nwk",
+        clades="defaults/{segment}/outbreaks.tsv",
+        mutations="results/{segment}/muts.json",
+    output:
+        clades="results/{segment}/outbreaks.json",
+    shell:
+        """
+        augur clades --tree {input.tree} \
+                    --clades {input.clades} \
+                    --mutations {input.mutations} \
+                    --membership-name outbreak --label-name outbreak \
+                    --output-node-data {output.clades}
+        """
+
+rule custom_temporal_color_scale:
+    input:
+        metadata="results/{segment}/metadata.tsv",
+    output:
+        json="results/{segment}/temporal-colors.json",
+    shell:
+        r"""
+        python scripts/temporal-colors.py \
+            --metadata {input.metadata} \
+            --output {output.json}
+        """
+
+rule augment_auspice_config:
+    input:
+        config="defaults/auspice_config.json",
+        extra_config="defaults/{segment}/auspice_extension.json",
+        temporal="results/{segment}/temporal-colors.json",
+    output:
+        config="results/{segment}/auspice_config.json",
+    run:
+        import json
+
+        with open(input.config) as f:
+            config = json.load(f)
+        with open(input.extra_config) as f:
+            extra_config = json.load(f)
+        if "extensions" not in config:
+            config["extensions"] = {}
+        if "nextclade" not in config["extensions"]:
+            config["extensions"]["nextclade"] = {}
+
+        config["extensions"]["nextclade"].update(extra_config)
+        config["title"] = f"Andes Virus {wildcards.segment.upper()} Segment (ANDV)"
+
+        # replace the placeholder 'date' coloring with bespoke scale:
+        with open(input.temporal) as f:
+            custom_temporal_coloring = json.load(f)
+        date_idx = [idx for idx,c in enumerate(config['colorings']) if c['key']=='date'][0]
+        config['colorings'][date_idx] = custom_temporal_coloring
+        
+        with open(output.config, "w") as f:
+            json.dump(config, f, indent=2)
+
+
+# generated changelog by fetching from GitHub raw URL specified in config.yaml, then prepending "## Unreleased" header to the top of the changelog content
+rule generate_changelog:
+    output:
+        changelog="results/{segment}/CHANGELOG.md",
+    params:
+        changelog_url=lambda w: config["changelog_url"].format(segment=w.segment),
+    shell:
+        """
+        curl -s {params.changelog_url} | cat <(printf "## Unreleased\n\n{default_update_message}\n\n") - > {output.changelog}
+        """
+
+
+rule export:
+    input:
+        tree="results/{segment}/tree.nwk",
+        metadata="results/{segment}/metadata.tsv",
+        ancestral_seqs="results/{segment}/muts.json",
+        auspice_config="results/{segment}/auspice_config.json",
+        outbreaks="results/{segment}/outbreaks.json",
+    output:
+        auspice_tree="results/{segment}/tree.json",
+    shell:
+        """
+        augur export v2 --tree {input.tree} \
+                    --metadata {input.metadata} \
+                    --metadata-id-columns accession \
+                    --auspice-config {input.auspice_config} \
+                    --node-data {input.ancestral_seqs} {input.outbreaks} \
+                    --include-root-sequence-inline \
+                    --output {output.auspice_tree} \
+        """
+
+
+rule replace_taxon_names:
+    input:
+        metadata="results/{segment}/metadata.tsv",
+        auspice_tree="results/{segment}/tree.json",
+    output:
+        auspice_tree="auspice/tree_{segment}.json",
+    run:
+        import json
+        import pandas as pd
+
+        with open(input.auspice_tree) as f:
+            tree = json.load(f)
+
+        metadata = pd.read_csv(input.metadata, sep="\t")
+        accession_to_strain = dict(zip(metadata["accession"], metadata["strain"]))
+
+        def replace_name(node):
+            if "name" in node and node["name"] in accession_to_strain:
+                node["name"] = accession_to_strain[node["name"]]
+            if "children" in node:
+                for child in node["children"]:
+                    replace_name(child)
+
+        replace_name(tree["tree"])
+
+        with open(output.auspice_tree, "w") as f:
+            json.dump(tree, f)
+
+
+rule example_sequences:
+    input:
+        sequences="results/{segment}/sequences.fasta",
+        metadata="results/{segment}/metadata.tsv",
+    output:
+        example_sequences="results/{segment}/example_sequences.fasta",
+    shell:
+        """
+        augur filter --metadata-id-columns accession strain --metadata {input.metadata} --sequences {input.sequences} \
+                     --subsample-max-sequences 10 --min-length 500 \
+                     --output-sequences {output.example_sequences}
+        """
+
+
+rule assemble_dataset:
+    input:
+        tree="auspice/tree_{segment}.json",
+        example_sequences="results/{segment}/example_sequences.fasta",
+        changelog="results/{segment}/CHANGELOG.md",
+    output:
+        dataset_tree="datasets/{segment}/tree.json",
+        changelog="datasets/{segment}/CHANGELOG.md",
+    params:
+        dataset_dir="datasets/{segment}",
+    shell:
+        """
+        cp {input.tree} {output.dataset_tree}
+        cp {input.example_sequences} {params.dataset_dir}/sequences.fasta
+        cp defaults/{wildcards.segment}/annotation.gff {params.dataset_dir}/genome_annotation.gff3
+        cp defaults/{wildcards.segment}/reference.fasta {params.dataset_dir}/reference.fasta
+        cp defaults/{wildcards.segment}/pathogen.json {params.dataset_dir}/pathogen.json
+        cp {input.changelog} {params.dataset_dir}/CHANGELOG.md
+        cp defaults/{wildcards.segment}/README.md {params.dataset_dir}/README.md
+
+        """

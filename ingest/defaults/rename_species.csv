@@ -1,2 +1,6 @@
 old_name,new_name
-"Hantavirus_Z10","Orthohantavirus_hantanense"
+"Hantavirus_Z10","htnv"
+"Orthohantavirus_hantanense","htnv"
+"Orthohantavirus_seoulense","seov"
+"Orthohantavirus_tulaense","tulv"
+"Orthohantavirus_puumalaense","puuv"

@@ -1,0 +1,144 @@
+{
+  "title": "Nextclade dataset for Andes hantavirus (ANDV)",
+  "maintainers": [
+    { "name": "the Nextstrain team", "url": "https://nextstrain.org/team" }
+  ],
+  "data_provenance": [
+    {
+      "name": "Pathoplexus",
+      "url": "https://pathoplexus.org/"
+    }
+  ],
+  "build_url": "https://github.com/nextstrain/hantavirus",
+  "colorings": [
+    {
+      "key": "gt",
+      "title": "Genotype",
+      "type": "categorical"
+    },
+    {
+      "key": "date",
+      "title": "THIS ENTRY WILL BE OVERWRITTEN BY SNAKEMAKE",
+      "type": "categorical"
+    },
+    {
+      "key": "region",
+      "title": "Region",
+      "type": "categorical"
+    },
+    {
+      "key": "country",
+      "title": "Country",
+      "type": "categorical"
+    },
+    {
+      "key": "division",
+      "title": "Admin Division",
+      "type": "categorical"
+    },
+    {
+      "key": "host",
+      "title": "Host",
+      "type": "categorical"
+    },
+    {
+      "key": "abbr_authors",
+      "title": "Authors",
+      "type": "categorical"
+    },
+    {
+      "key": "dataUseTerms",
+      "title": "Data use terms",
+      "type": "categorical"
+    },
+    {
+      "key": "restrictedUntil",
+      "title": "Restricted Until",
+      "type": "categorical"
+    },
+    {
+      "key": "date_released",
+      "title": "Release Date",
+      "type": "categorical"
+    },
+    {
+      "key": "submission_database",
+      "title": "Database of original submission",
+      "type": "categorical"
+    },
+    {
+      "key": "Pathoplexus_group",
+      "title": "Pathoplexus Group",
+      "type": "categorical"
+    },
+    {
+      "key": "length",
+      "title": "Length",
+      "type": "continuous"
+    },
+    {
+      "key": "INSDC_accession",
+      "title": "INSDC Accession",
+      "type": "categorical"
+    },
+    {
+      "key": "PPX_accession",
+      "title": "Pathoplexus Accession",
+      "type": "categorical"
+    },
+    {
+      "key": "institution",
+      "title": "Author Affiliations",
+      "type": "categorical"
+    },
+    {
+      "key": "totalAmbiguousNucs",
+      "title": "Ambiguous Nucleotides",
+      "type": "continuous"
+    },
+    {
+      "key": "totalInsertions",
+      "title": "Insertions",
+      "type": "continuous"
+    },
+    {
+      "key": "totalDeletions",
+      "title": "Deletions",
+      "type": "continuous"
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "categorical"
+    }
+  ],
+  "geo_resolutions": ["country"],
+  "display_defaults": {
+    "map_triplicate": false,
+    "color_by": "outbreak",
+    "distance_measure": "div"
+  },
+  "filters": [
+    "country",
+    "division",
+    "host",
+    "abbr_authors",
+    "clade_membership"
+  ],
+  "metadata_columns": [
+    "strain"
+  ],
+  "panels": ["tree", "entropy"],
+  "extensions": {
+    "nextclade": {
+      "clade_node_attrs": [
+        {
+          "name": "outbreak",
+          "displayName": "Outbreak",
+          "description": "Annotation of recent outbreaks (to be refined)",
+          "skipAsReference": false
+        }
+      ]
+    }
+  }
+}

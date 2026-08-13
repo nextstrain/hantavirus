@@ -1,0 +1,55 @@
+# This configuration file should contain all required configuration parameters
+# for the Nextclade workflow to run to completion.
+#
+# Define optional config parameters with their default values here so that users
+# do not have to dig through the workflows to figure out the default values
+
+strain_id_field: "accession"
+display_strain_field: "strain"
+
+changelog_url: "https://raw.githubusercontent.com/nextstrain/nextclade_data/refs/heads/master/data/nextstrain/orthohantavirus/andv/{segment}/CHANGELOG.md"
+
+inputs:
+  - name: ncbi
+    sequences: "https://data.nextstrain.org/files/workflows/lassa/all/sequences.fasta.zst"
+    metadata: "https://data.nextstrain.org/files/workflows/lassa/all/metadata.tsv.zst"
+
+segments: ['m', 'l', 's']
+
+clade_membership:
+  metadata: "defaults/{segment}/metadata_clade_membership.tsv"
+  fallback: "{segment}_lineage"
+
+min_length:
+  m: 2000
+  l: 3000
+  s: 1000
+
+mask_beginning:
+  m: 51
+  l: 35
+  s: 42
+
+mask_end:
+  m: 200
+  l: 65
+  s: 540
+
+tree:
+  method: "iqtree"
+
+refine:
+  m: '--root mid_point'
+  l: '--root mid_point'
+  s: '--root mid_point'
+
+ancestral:
+  inference: "joint"
+
+traits:
+  columns: "clade_membership"
+
+export:
+  auspice_config: "defaults/auspice_config.json"
+  description: "../phylogenetic/defaults/description.md"
+

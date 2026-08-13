@@ -54,8 +54,8 @@ rule curate:
         sequences_ndjson="results/{species}/{segment}/ncbi.ndjson",
         local_geolocation_rules=config["curate"]["local_geolocation_rules"],
     output:
-        metadata="results/{species}/{segment}/metadata_curated.tsv",
-        sequences="results/{species}/{segment}/sequences_curated.fasta",
+        metadata="results/{species}/{segment}/metadata.tsv",
+        sequences="results/{species}/{segment}/sequences.fasta",
     params:
         field_map=format_field_map(config["curate"]["field_map"]),
         strain_regex=config["curate"]["strain_regex"],
@@ -72,6 +72,8 @@ rule curate:
         # annotations_id=config["curate"]["annotations_id"],
         id_field=config["curate"]["output_id_field"],
         sequence_field=config["curate"]["output_sequence_field"],
+    wildcard_constraints:
+        species="htnv|seov|tulv|puuv",
     shell:
         """
         cat {input.sequences_ndjson} \

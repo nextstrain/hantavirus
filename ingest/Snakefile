@@ -4,18 +4,23 @@ workdir: workflow.current_basedir
 configfile: "defaults/config.yaml"
 
 segment = ["m", "l", "s"]
-species= ["Orthohantavirus_hantanense",
-            "Orthohantavirus_seoulense", "Orthohantavirus_tulaense", "Orthohantavirus_puumalaense"]
+species= ["htnv","seov", "tulv", "puuv"]
 PIDENT=90
 
 include: "rules/fetch_from_ncbi.smk"
-include:"rules/classify_sequences.smk"
+include: "rules/fetch_from_ppx.smk"
+include: "rules/classify_sequences.smk"
 include: "rules/curate.smk"
+include: "rules/curate_ppx.smk"
 
 rule all:
     input:
-        expand("results/{species}/{segment}/metadata_curated.tsv", segment=segment, species=species),
-        expand("results/{species}/{segment}/sequences_curated.fasta", segment=segment, species=species)
+        expand("results/{species}/{segment}/metadata.tsv", segment=segment, species=species),
+        expand("results/{species}/{segment}/sequences.fasta", segment=segment, species=species),
+        expand("results/andv/{segment}/sequences_open.fasta", segment=segment),
+        expand("results/andv/{segment}/sequences_restricted.fasta", segment=segment),
+        expand("results/andv/{segment}/metadata_open.tsv", segment=segment),
+        expand("results/andv/{segment}/metadata_restricted.tsv", segment=segment)
 
 if "custom_rules" in config:
     for rule_file in config["custom_rules"]:

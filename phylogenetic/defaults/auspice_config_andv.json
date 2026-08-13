@@ -1,0 +1,70 @@
+{
+  "title": "Real-time tracking of Orthohantavirus",
+  "maintainers": [
+    {"name": "Hannah Jung"},
+    {"name": "the Nextstrain team", "url": "nextstrain.org"}
+  ],
+  "data_provenance": [
+    {
+      "name": "GenBank",
+      "url": "https://www.ncbi.nlm.nih.gov/genbank/"
+    },
+    {
+      "name": "Pathoplexus",
+      "url": "https://pathoplexus.org"
+    }
+  ],
+  "build_url": "https://github.com/nextstrain/hantavirus",
+  "colorings": [
+    {
+      "key": "num_date",
+      "title": "Date",
+      "type": "continuous"
+    },
+    {
+      "key": "region",
+      "title": "Region",
+      "type": "categorical"
+    },
+    {
+      "key": "country",
+      "title": "Country",
+      "type": "categorical"
+    },
+    {
+      "key": "host",
+      "title": "Host",
+      "type": "categorical"
+    },
+    {
+      "key": "NCBI_species",
+      "title": "NCBI-assigned species",
+      "type": "categorical"
+    },
+    {
+      "key": "abbr_authors",
+      "title": "Authors (abbreviated)",
+      "type": "categorical"
+    },
+     {
+      "key": "length",
+      "title": "Sequence length",
+      "type": "continuous"
+    }
+  ],
+  "geo_resolutions": [
+    "country"
+  ],
+  "display_defaults": {
+    "map_triplicate": false,
+    "color_by": "country"
+  },
+  "filters": [
+    "country",
+    "host",
+    "region",
+    "NCBI_species",
+    "abbr_authors",
+    "length"
+  ]
+}
